@@ -132,6 +132,17 @@ describe('Automation UI Testing Using Cypress', () => {
     cy.wait(2000)
     cy.get('#password-confirmation-error').contains('This is a required field.')
   })
+  it('Register Failed with Empty All Field', () => {
+    cy.visit('https://magento.softwaretestingboard.com/')
+    cy.wait(1000)
+    cy.get('#form-validate > .actions-toolbar > div.primary > .action').click()
+    cy.wait(2000)
+    cy.get('#firstname-error').contains('This is a required field.')
+    cy.get('#lastname-error').contains('This is a required field.')
+    cy.get('#email_address-error').contains('This is a required field.')
+    cy.get('#password-error').contains('This is a required field.')
+    cy.get('#password-confirmation-error').contains('This is a required field.')
+  })
 
   it('Login Success with Valid Data', () => {
     cy.visit(loginUrl)
